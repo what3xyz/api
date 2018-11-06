@@ -1,0 +1,21 @@
+{
+  "name": "what3.xyz",
+  "version": "1.0.0",
+  "description": "What3.xyz API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Getter Rätsep",
+  "devDependencies": {
+    "nodemon": "^1.18.6"
+  },
+  "dependencies": {
+    "bcrypt": "^3.0.2",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.3.0",
+    "pg": "^7.6.0"
+  }
+}

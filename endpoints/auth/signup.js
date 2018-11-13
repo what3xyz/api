@@ -1,4 +1,5 @@
 const isemail = require('isemail');
+const bcrypt = require('bcryptjs');
 
 /*
 
@@ -17,6 +18,8 @@ module.exports = async (req, res, next) => {
 
         if (!password || password.length < 8)
             return next({message: 'Please enter a valid password of 8 characters or more.'});
+
+        let hash = await bcrypt.hash(password, 10);
 
 
     } catch(e) {

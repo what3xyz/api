@@ -4,7 +4,8 @@
   "description": "What3.xyz API",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "api": "nodemon -e js,json index.js",
+    "db": "cockroach start --store=$(pwd)/db/node1 --insecure --host=localhost --background"
   },
   "author": "Getter Rätsep",
   "devDependencies": {

@@ -1,3 +1,7 @@
 {
-    "PORT": 8080
+    "PORT": 8080,
+    "LOGGING_DB": false,
+    "dbConnectionString": "postgresql://root@localhost:26257/mydatabase?sslmode=disable",
+    "jwtExpires": "48h",
+    "jwtSecret": "create-your-jwt-secret-key-here"
 }

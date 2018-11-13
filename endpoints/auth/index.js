@@ -1,3 +1,5 @@
+const signup = require('./signup');
+
 /*
 
         /auth

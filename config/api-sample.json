@@ -4,5 +4,13 @@
     "dbConnectionString": "postgresql://root@localhost:26257/mydatabase?sslmode=disable",
     "jwtExpires": "48h",
     "saltRounds": 10,
-    "jwtSecret": "create-your-jwt-secret-key-here"
+    "jwtSecret": "create-your-jwt-secret-key-here",
+
+    "apiName": "Your API",
+    "apiDescription": "Your API",
+    "apiVersion": "0.0.1",
+
+    "apiBadRequest": "Missing required information. Please consult the API Documentation for required headers and parameters.",
+    "apiNotFound": "Please check your request.",
+    "apiInternalError": "Something went wrong with the request. Our team has been notified and will be looking into it."
 }

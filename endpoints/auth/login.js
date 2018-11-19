@@ -1,4 +1,7 @@
+const env = require('../../config/api');
 const db = require('../../utils/db');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 /*
 
@@ -23,6 +26,11 @@ module.exports = async (req, res, next) => {
         // See if a record with that email exists
         if (result.rowCount !== 1) return next({status: 401, message: 'Please check your email and password.'});
     
+        let row = result.rows[0];
+
+        // Strip password from object so it's not returned to the user
+        delete row.password;
+
     } catch(e) {
         return next({status: 500, trace: e});
     }

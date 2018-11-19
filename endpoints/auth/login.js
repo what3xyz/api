@@ -12,6 +12,7 @@ const jwt = require('jsonwebtoken');
 module.exports = async (req, res, next) => {
 
     try {
+
         let { email, password } = req.body;
 
         if(!email || !password) return next({message: 'Please pass in email and password.'});
@@ -36,10 +37,10 @@ module.exports = async (req, res, next) => {
         const match = await bcrypt.compare(password, hash);
         if (!match) return next({status: 401, message: 'Please check your email and password.'});
 
-        row.token = await jwt.sign({uid: row.id}, env.jwtSecret, {expiresIn: env.JwtExpires});
+        row.token = await jwt.sign({uid: row.id}, env.jwtSecret, {expiresIn: env.jwtExpires});
 
         res.send(row);
-        
+
     } catch(e) {
         return next({status: 500, trace: e});
     }

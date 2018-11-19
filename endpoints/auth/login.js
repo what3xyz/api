@@ -27,9 +27,14 @@ module.exports = async (req, res, next) => {
         if (result.rowCount !== 1) return next({status: 401, message: 'Please check your email and password.'});
     
         let row = result.rows[0];
+        let hash = row.password;
 
         // Strip password from object so it's not returned to the user
         delete row.password;
+
+        // See if hashes match
+        const match = await bcrypt.compare(password, hash);
+        if (!match) return next({status: 401, message: 'Please check your email and password.'});
 
     } catch(e) {
         return next({status: 500, trace: e});

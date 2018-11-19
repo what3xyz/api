@@ -11,6 +11,7 @@
     "apiVersion": "0.0.1",
 
     "apiBadRequest": "Missing required information. Please consult the API Documentation for required headers and parameters.",
+    "apiUnauthorized": "Please make sure you have submitted the correct credentials.",
     "apiNotFound": "Please check your request.",
     "apiInternalError": "Something went wrong with the request. Our team has been notified and will be looking into it."
 }

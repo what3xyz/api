@@ -36,6 +36,10 @@ module.exports = async (req, res, next) => {
         const match = await bcrypt.compare(password, hash);
         if (!match) return next({status: 401, message: 'Please check your email and password.'});
 
+        row.token = await jwt.sign({uid: row.id}, env.jwtSecret, {expiresIn: env.JwtExpires});
+
+        res.send(row);
+        
     } catch(e) {
         return next({status: 500, trace: e});
     }

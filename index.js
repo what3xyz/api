@@ -17,6 +17,7 @@ app.use(urlencoded({extended: false}));
 
 // Include endpoints
 const auth = require('./endpoints/auth');
+const users = require('./endpoints/users');
 
 //API
 let api = express();

@@ -17,6 +17,7 @@ function errorHandler(err, req, res, next) {
 
     let messages = {
         "400": "Bad Request. " + (message || env.apiBadRequest),
+        "401": "Unauthorized. " + (message || env.apiUnauthorized),
         "404": "Not Found. " + (message || env.apiNotFound),
         "500": "Internal Server Error. " + (message || env.apiInternalError)
     };

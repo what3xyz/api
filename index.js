@@ -34,6 +34,7 @@ api.post('/auth/:route', auth.post);
 
 // Get and update user info
 api.get('/users/:userId', users.get);
+api.put('/users/:userId', users.put);
 
 
 

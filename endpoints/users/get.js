@@ -7,7 +7,8 @@ const db = require('../../utils/db');
 
 */
 
-async function get(req, res, next) {
+module.exports = async (req, res, next) => {
+
     try {
 
         let { userId } = req.params;
@@ -30,6 +31,5 @@ async function get(req, res, next) {
     } catch(e) {
         return next({status: 500, trace: e});
     }
+    
 }
-
-module.exports = get;

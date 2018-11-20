@@ -23,8 +23,18 @@ const users = require('./endpoints/users');
 let api = express();
 
 
-// API endpoints
+/*
+
+    API endpoints
+
+*/
+
+// Signup and login
 api.post('/auth/:route', auth.post);
+
+// Get and update user info
+api.get('/users/:userId', users.get);
+
 
 
 api.get('/', (req, res) => res.send({version: env.apiVersion}));

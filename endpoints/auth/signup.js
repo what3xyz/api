@@ -2,7 +2,7 @@ const env = require('../../config/api');
 const db = require('../../utils/db');
 const isemail = require('isemail');
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+const jwt = require('../../utils/jwt');
 
 if (!Number.isInteger(env.saltRounds)) throw(new Error(`Please add saltRounds as an INT to your config.`));
 
@@ -36,7 +36,7 @@ module.exports = async (req, res, next) => {
         if (result.rowCount !== 1) next({status: 500, message: 'Error creating new user.'});
 
         let row = result.rows[0];
-        row.token = await jwt.sign({uid: row.id}, env.jwtSecret, {expiresIn: env.jwtExpires});
+        row.token = await jwt.sign({uid: row.id});
         
         res.send(row);
 

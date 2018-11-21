@@ -1,7 +1,6 @@
-const env = require('../../config/api');
 const db = require('../../utils/db');
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+const jwt = require('../../utils/jwt');
 
 /*
 
@@ -37,7 +36,7 @@ module.exports = async (req, res, next) => {
         const match = await bcrypt.compare(password, hash);
         if (!match) return next({status: 401, message: 'Please check your email and password.'});
 
-        row.token = await jwt.sign({uid: row.id}, env.jwtSecret, {expiresIn: env.jwtExpires});
+        row.token = await jwt.sign({uid: row.id});
 
         res.send(row);
 

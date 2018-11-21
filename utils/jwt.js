@@ -9,7 +9,7 @@ module.exports = {
 
         expires = expires ? expires : env.jwtExpires;
 
-        return await jwt.sign(body, env.jwt_secret, {expiresIn: expires});
+        return await jwt.sign(body, env.jwtSecret, {expiresIn: expires});
 
     }
 

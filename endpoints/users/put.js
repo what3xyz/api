@@ -46,10 +46,11 @@ module.exports = async (req, res, next) => {
        let field = '', 
        params = [ new Date(), userId ];
 
-       //  forEach loop here ..
+       keys.forEach((item, index) => {
+           field = field + item + '=$' + (params.length+1) + (keys.length-1 !== index ? ',' : '');
+           params.push(body[item]);
+       });
 
-
-       // Query
        let query =`
             UPDATE users SET ${field}, modified=$1
             WHERE active=true AND id=$2

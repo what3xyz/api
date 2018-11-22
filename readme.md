@@ -22,20 +22,21 @@ Using a PostgreSQL database (_or CockroachDB_). Using the `pg` NodeJS Postgres D
 ### Endpoints
 * /auth 
     * post - login user
-* /users
     * post - create a new user (will use gravatar for avatars at first)
 * /users/[:userId]
-    * get - get a user account
-    * put - update a user account
+    * get - get an user account
+    * put - update an user account
 * /ideas
+    * post - add a new idea
+        * validate (140 char or less, etc.)
     * get - get all ideas
         * limit 20, order by date DESC
 * /ideas/[:ideaId]
     * get - return single specific idea
-    * post - add a new idea
-        * validate (140 char or less, etc.)
     * put - update an idea
         * verify owned by the user
+* /ideas/user/[:userId]
+    * get - ideas from a specific user
 * /tags
     * get - return all ideas under tag
         * limit 20, order by date DESC

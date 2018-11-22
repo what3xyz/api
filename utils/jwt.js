@@ -11,6 +11,20 @@ module.exports = {
 
         return await jwt.sign(body, env.jwtSecret, {expiresIn: expires});
 
+    },
+
+    verify: (token) => {
+
+        return new Promise(resolve => {
+
+            jwt.verify(token, env.jwtSecret, (err, decodedToken) => {
+                if(err || !decodedToken) resolve({error: err});
+                else resolve(decodedToken);
+            })
+
+        });
+
     }
+
 
 };

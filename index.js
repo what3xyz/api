@@ -5,7 +5,8 @@ const cors = require('cors');
 const {json, urlencoded} = require('body-parser');
 
 const env = require("./config/api.json");
-const jwt = require('jsonwebtoken');
+const jwt = require('./utils/jwt');
+const isAuthenticated = require('./utils/isAuthenticated');
 const { errorHandler } = require('./utils/errorHandling');
 
 
@@ -33,8 +34,8 @@ let api = express();
 api.post('/auth/:route', auth.post);
 
 // Get and update user info
-api.get('/users/:userId', users.get);
-api.put('/users/:userId', users.put);
+api.get('/users/:userId', isAuthenticated, users.get);
+api.put('/users/:userId', isAuthenticated, users.put);
 
 
 

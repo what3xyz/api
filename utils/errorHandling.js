@@ -20,6 +20,7 @@ function errorHandler(err, req, res, next) {
         "401": "Unauthorized. " + (message || env.apiUnauthorized),
         "403": "Forbidden. " + (message || env.apiForbidden),
         "404": "Not Found. " + (message || env.apiNotFound),
+        "405": "Method Not Allowed. " + (message || env.apiMethodNotAllowed),
         "500": "Internal Server Error. " + (message || env.apiInternalError)
     };
     message = messages[key] ? messages[key] : env.apiBadRequest;

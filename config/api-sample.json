@@ -14,5 +14,6 @@
     "apiUnauthorized": "Please make sure you have submitted the correct credentials.",
     "apiForbidden": "You do not have access to this endpoint.",
     "apiNotFound": "Please check your request.",
+    "apiMethodNotAllowed": "Method is not allowed on the requested endpoint.",
     "apiInternalError": "Something went wrong with the request. Our team has been notified and will be looking into it."
 }
